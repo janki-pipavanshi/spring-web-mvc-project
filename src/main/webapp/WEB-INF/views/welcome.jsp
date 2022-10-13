@@ -1,6 +1,10 @@
+<%@page import="com.model.userModel"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%@ page isELIgnored="false" %>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -21,6 +25,7 @@ Author URL: http://w3layouts.com
   <link rel="stylesheet" href="css/style-starter.css">
 
 </head>
+<%userModel u=(userModel)session.getAttribute("user");%>
 
 <body>
 <!--header-->
@@ -45,13 +50,13 @@ Author URL: http://w3layouts.com
               
               <ul class="navbar-nav ml-lg-5 mr-lg-auto">
                   <li class="nav-item @@home__active">
-                      <a class="nav-link" href="/SpringWebMVC">Menu</span></a>
+                      <a class="nav-link" href="menu">Menu</span></a>
                   </li>
                   <li class="nav-item @@about__active">
                       <a class="nav-link" href="booktable">Book a Table</a>
                   </li>
                   <li class="nav-item @@about__active">
-                      <a class="nav-link" href="contact">Reviews</a>
+                      <a class="nav-link" href="reviews">Reviews</a>
                   </li>
               </ul>
               
@@ -60,7 +65,7 @@ Author URL: http://w3layouts.com
                      <li class="nav-item @@home__active">
              			<a class="nav-link" href="register">Feedback</a></li>
              			<li class="nav-item @@home__active">
-                      <a class="nav-link" href="register">Logout</a></li>
+                      <a class="nav-link" href="logout">Logout</a></li>
              
               </ul>
               </div>
@@ -681,24 +686,7 @@ Author URL: http://w3layouts.com
         <p>We want to provide you with a great experience. Your feedback helps us
           bring you more of the events you love and the service you expect.</p>
       </div>
-      <div class="footer-grid">
-        <div class="w3l-copyright text-center">
-          <div class="social text-center">
-            <ul class="d-flex justify-content-center">
-              <li class="mx-md-2 mx-1"><a href="#url" class="facebook"><span class="fab fa-facebook-f"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="twitter"><span class="fab fa-twitter"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="rss"><span class="fas fa-rss"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="linkedin"><span class="fab fa-linkedin-in"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="google"><span class="fab fa-google-plus"></span></a></li>
-            </ul>
-          </div>
-          <p class="mt-4">© 2020 Blog Store. All Rights Reserved | Design by <a href="http://w3layouts.com/"
-              target="=_blank"> W3layouts
-            </a></p>
-        </div>
-      </div>
-
-    </div>
+     </div>
   </footer>
   <!-- footer -->
 

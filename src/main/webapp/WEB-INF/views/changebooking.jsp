@@ -1,15 +1,13 @@
+<%@page import="org.hibernate.mapping.Map"%>
+<%@page import="com.model.booktable"%>
+<%@page import="org.springframework.web.servlet.ModelAndView"%>
 <%@page import="com.model.userModel"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page isELIgnored="false" %>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
 <!doctype html>
 <html lang="en">
 
@@ -23,7 +21,7 @@ Author URL: http://w3layouts.com
   <link href="//fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="css/style-starter.css">
+  <link rel="stylesheet" href="../css/style-starter.css">
 
 <style>
 select
@@ -41,11 +39,8 @@ height:40px;
 </style>
 
 </head>
-<%userModel u=(userModel)session.getAttribute("user"); 
-int id=u.getId();%>
+
 <body>
-
-
 <!--header-->
 <header id="site-header" class="fixed-top">
   <div class="container">
@@ -76,9 +71,6 @@ int id=u.getId();%>
                   <li class="nav-item @@about__active">
                       <a class="nav-link" href="reviews">Reviews</a>
                   </li>
-                  <li class="nav-item @@about__active">
-                      <a class="nav-link" href="changebooking/<%=id%>">Change Booking</a>
-                  </li>
               </ul>
               
               <div>
@@ -104,57 +96,43 @@ int id=u.getId();%>
             
                 <div class="row map-content-9">
                 
-                    <div class="col-lg-8">
-                    <br>
-                            <h4 class="title-left mb-3">Please Select Your Booking Details</h4>
-                <br>
-                        <form action="bookatable" method="post" class="">
-                            <div class="form-grid">
-                            	<div class="input-field">
-                                    <label> Select Date</label>
-                                    <input type="date" name="date" id="w3lName" placeholder="" required="">
-                                </div>
-                            	<div class="input-field">
-                                    <label> Select Guest</label><br>
-                                    <select name="guest" style="border: none;" required="" >
-                                     <option value="0" >0</option>
-                                    <option value="2" >2</option>
-  									<option value="3">3</option>
-  									<option value="4" >4</option>
-  									<option value="5" >5</option>
-  									</select>
-                                </div>
-                                <div class="input-field">
-                                    <label> Select Session</label><br>
-                                    <select name="session" style="border: none;" required="" >
-                                     <option value="breakfast" >BreakFast</option>
-                                    <option value="lunch" >Lunch</option>
-  									<option value="dinner">Dinner</option>
-  									</select>
-                                </div><br>
-                            <h4 class="title-left mb-3">Guest Details</h4>
-                <br>
-                                <div class="input-field">
-                                    <label> Your name</label>
-                                    <input type="text" name="name" id="w3lName" placeholder="" required="" value="${u.id }">
-                                </div>
-                                <div class="input-field">
-                                    <label> Your Email</label>
-                                    <input type="email" name="email" id="w3lSender" placeholder="" required="">
-                                </div>
-                                <div class="input-field">
-                                    <label> Your Phone</label>
-                                    <input type="text" name="contact" id="w3lPhone" placeholder="" required="">
-                                </div>
-                                
-                            </div>
-                            <div class="input-field mt-4">
-                                <label>Additional Information</label>
-                                <textarea name="info" id="w3lMessage" placeholder=""></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-style mt-3">Book</button>
-                        </form>
-                    </div>
+                <div class="container">
+                
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col"> Id</th>
+					<th scope="col">Contact</th>
+					<th scope="col">Date</th>
+					<th scope="col">Email</th>
+					<th scope="col">Number of Guest</th>
+					<th scope="col">Additional Information</th>
+					<th scope="col">Name</th>
+					<th scope="col">Session</th>
+					<th scope="col">Edit</th>
+					<th scope="col">Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% booktable u=(booktable)request.getAttribute("list");
+				session.setAttribute("list",u);%>
+					<tr>
+						<td scope="row"><%=u.getId() %></td>
+						<td><%=u.getContact() %></td>
+						<td><%=u.getDate() %></td>
+						<td><%=u.getEmail() %></td>
+						<td><%=u.getGuest() %></td>
+						<td><%=u.getInfo() %></td>
+						<td><%=u.getName() %></td>
+						<td><%=u.getSession() %></td>
+						<td><a href="/SpringWebMVC/updatebooking">Edit</a></td>
+						<td><a href="/SpringWebMVC/delete/<%=u.getId()%>">Delete</a></td>
+					</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	
                     <div class="col-lg-4 cont-details">
                         <address>
                             <h5 class="">Our Office Address</h5>
@@ -191,7 +169,7 @@ int id=u.getId();%>
   <footer class="py-5">
     <div class="container pt-md-5">
       <div class="footer-logo mb-lg-5 mb-4 text-center">
-        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Shija Restaurant</a>
+        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Blog Store</a>
         <p>We want to provide you with a great experience. Your feedback helps us
           bring you more of the events you love and the service you expect.</p>
       </div>
@@ -226,9 +204,9 @@ int id=u.getId();%>
   </script>
   <!-- /move top -->
 
-  <script src="js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+  <script src="../js/theme-change.js"></script><!-- theme switch js (light and dark)-->
 
-  <script src="js/jquery-3.3.1.min.js"></script><!-- default jQuery -->
+  <script src="../js/jquery-3.3.1.min.js"></script><!-- default jQuery -->
 
   <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
 
@@ -339,7 +317,7 @@ int id=u.getId();%>
   <!--//MENU-JS-->
 
   <!-- bootstrap js -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
   </body>
 

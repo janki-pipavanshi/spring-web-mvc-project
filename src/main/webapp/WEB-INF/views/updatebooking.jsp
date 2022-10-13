@@ -1,3 +1,4 @@
+<%@page import="com.model.booktable"%>
 <%@page import="com.model.userModel"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -39,10 +40,17 @@ height:40px;
 }
 
 </style>
+<script type="text/javascript">
+function Click()
+{
+	alert("your Booking Details Updated Successfully");	
+}
 
+</script>
 </head>
 <%userModel u=(userModel)session.getAttribute("user"); 
-int id=u.getId();%>
+int id=u.getId();
+%>
 <body>
 
 
@@ -108,15 +116,17 @@ int id=u.getId();%>
                     <br>
                             <h4 class="title-left mb-3">Please Select Your Booking Details</h4>
                 <br>
-                        <form action="bookatable" method="post" class="">
+                <% booktable u1=(booktable)session.getAttribute("list");%>
+				
+                        <form action="update" method="post" class="">
                             <div class="form-grid">
                             	<div class="input-field">
                                     <label> Select Date</label>
-                                    <input type="date" name="date" id="w3lName" placeholder="" required="">
+                                    <input type="date" name="date" id="w3lName" value="<%=u1.getDate()%>">
                                 </div>
                             	<div class="input-field">
                                     <label> Select Guest</label><br>
-                                    <select name="guest" style="border: none;" required="" >
+                                    <select name="guest" style="border: none;" value="<%=u1.getGuest()%>" >
                                      <option value="0" >0</option>
                                     <option value="2" >2</option>
   									<option value="3">3</option>
@@ -126,38 +136,38 @@ int id=u.getId();%>
                                 </div>
                                 <div class="input-field">
                                     <label> Select Session</label><br>
-                                    <select name="session" style="border: none;" required="" >
-                                     <option value="breakfast" >BreakFast</option>
-                                    <option value="lunch" >Lunch</option>
-  									<option value="dinner">Dinner</option>
+                                    <select name="session" style="border: none;"  >
+                                     <option value="<%=u1.getSession()%>" >BreakFast</option>
+                                    <option value="<%=u1.getSession()%>" >Lunch</option>
+  									<option value="<%=u1.getSession()%>">Dinner</option>
   									</select>
                                 </div><br>
                             <h4 class="title-left mb-3">Guest Details</h4>
                 <br>
                                 <div class="input-field">
                                     <label> Your name</label>
-                                    <input type="text" name="name" id="w3lName" placeholder="" required="" value="${u.id }">
+                                    <input type="text" name="name" id="w3lName" value="<%=u1.getName()%>">
                                 </div>
                                 <div class="input-field">
                                     <label> Your Email</label>
-                                    <input type="email" name="email" id="w3lSender" placeholder="" required="">
+                                    <input type="email" name="email" id="w3lSender"value="<%=u1.getEmail()%>">
                                 </div>
                                 <div class="input-field">
                                     <label> Your Phone</label>
-                                    <input type="text" name="contact" id="w3lPhone" placeholder="" required="">
+                                    <input type="text" name="contact" id="w3lPhone" value="<%=u1.getContact()%>">
                                 </div>
                                 
                             </div>
                             <div class="input-field mt-4">
                                 <label>Additional Information</label>
-                                <textarea name="info" id="w3lMessage" placeholder=""></textarea>
+                                <textarea name="info" id="w3lMessage" value="<%=u1.getInfo()%>"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-style mt-3">Book</button>
+                            <button type="submit" class="btn btn-primary btn-style mt-3" onclick="Click();">Update</button>
                         </form>
                     </div>
                     <div class="col-lg-4 cont-details">
                         <address>
-                            <h5 class="">Our Office Address</h5>
+                            <h5 class="">Our Restaurant Address</h5>
                             <p><span class="fa fa-map-marker"></span>The blog business centre, 32, My Street,Kingston,
                                 New York 12401United States </p>
 
@@ -191,7 +201,7 @@ int id=u.getId();%>
   <footer class="py-5">
     <div class="container pt-md-5">
       <div class="footer-logo mb-lg-5 mb-4 text-center">
-        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Shija Restaurant</a>
+        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span>Shija Restaurant</a>
         <p>We want to provide you with a great experience. Your feedback helps us
           bring you more of the events you love and the service you expect.</p>
       </div>

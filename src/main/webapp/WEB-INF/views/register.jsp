@@ -57,12 +57,12 @@ Author URL: http://w3layouts.com
                      <ul class="navbar-nav ml-lg-5 mr-lg-auto">
               
                        <li class="nav-item @@contact__active">
-                      <a class="nav-link" href="contact">login</a>
+                      <a class="nav-link" href="login">login</a>
                   
             
           
                        <li class="nav-item @@contact__active">
-                      <a class="nav-link" href="contact">Register</a>
+                      <a class="nav-link" href="register">Register</a>
               </ul>
               </div><!-- //toggle switch for light and dark theme -->
       </nav>
@@ -73,7 +73,7 @@ Author URL: http://w3layouts.com
 <div class="w3l-contact-breadcrumb w3l-search-results py-5 text-center">
     <div class="container py-lg-4 py-md-3">
         <ul class="breadcrumbs-custom-path mb-sm-3 mb-2 text-center">
-            <li><a href="index.jsp">Home</a></li>
+            <li><a href="/SpringWebMVC">Home</a></li>
             <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Register page </li>
         </ul>
         <h3 class="title-big mb-4">Register here</h3>
@@ -152,25 +152,11 @@ Author URL: http://w3layouts.com
   <footer class="py-5">
     <div class="container pt-md-5">
       <div class="footer-logo mb-lg-5 mb-4 text-center">
-        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Blog Store</a>
+        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Shija Restaurant</a>
         <p>We want to provide you with a great experience. Your feedback helps us
           bring you more of the events you love and the service you expect.</p>
       </div>
-      <div class="footer-grid">
-        <div class="w3l-copyright text-center">
-          <div class="social text-center">
-            <ul class="d-flex justify-content-center">
-              <li class="mx-md-2 mx-1"><a href="#url" class="facebook"><span class="fab fa-facebook-f"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="twitter"><span class="fab fa-twitter"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="rss"><span class="fas fa-rss"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="linkedin"><span class="fab fa-linkedin-in"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="google"><span class="fab fa-google-plus"></span></a></li>
-            </ul>
-          </div>
-         
-        </div>
-      </div>
-
+     
     </div>
   </footer>
   <!-- footer -->

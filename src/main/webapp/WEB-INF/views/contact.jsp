@@ -26,7 +26,7 @@ Author URL: http://w3layouts.com
 <header id="site-header" class="fixed-top">
   <div class="container">
       <nav class="navbar navbar-expand-lg stroke p-0">
-          <h1> <a class="navbar-brand" href="/">
+          <h1> <a class="navbar-brand" href="/SpringWebMVC">
                   <span class="fa fa-bell-o"></span> Blog Store
               </a></h1>
           <!-- if logo is image enable this   
@@ -57,12 +57,12 @@ Author URL: http://w3layouts.com
                      <ul class="navbar-nav ml-lg-5 mr-lg-auto">
               
                        <li class="nav-item @@contact__active">
-                      <a class="nav-link" href="contact">login</a>
+                      <a class="nav-link" href="login">login</a>
                   
             
           
                        <li class="nav-item @@contact__active">
-                      <a class="nav-link" href="contact">Register</a>
+                      <a class="nav-link" href="register">Register</a>
               </ul>
               </div><!-- //toggle switch for light and dark theme -->
       </nav>
@@ -73,7 +73,7 @@ Author URL: http://w3layouts.com
 <div class="w3l-contact-breadcrumb w3l-search-results py-5 text-center">
     <div class="container py-lg-4 py-md-3">
         <ul class="breadcrumbs-custom-path mb-sm-3 mb-2 text-center">
-            <li><a href="index.jsp">Home</a></li>
+            <li><a href="/SpringWebMVC">Home</a></li>
             <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Contact page </li>
         </ul>
         <h3 class="title-big mb-4">Contact Us</h3>
@@ -118,7 +118,7 @@ Author URL: http://w3layouts.com
                     </div>
                     <div class="col-lg-4 cont-details">
                         <address>
-                            <h5 class="">Our Office Address</h5>
+                            <h5 class="">Our Restaurant Address</h5>
                             <p><span class="fa fa-map-marker"></span>The blog business centre, 32, My Street,Kingston,
                                 New York 12401United States </p>
 
@@ -152,27 +152,11 @@ Author URL: http://w3layouts.com
   <footer class="py-5">
     <div class="container pt-md-5">
       <div class="footer-logo mb-lg-5 mb-4 text-center">
-        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Blog Store</a>
+        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Shija Restaurant</a>
         <p>We want to provide you with a great experience. Your feedback helps us
           bring you more of the events you love and the service you expect.</p>
       </div>
-      <div class="footer-grid">
-        <div class="w3l-copyright text-center">
-          <div class="social text-center">
-            <ul class="d-flex justify-content-center">
-              <li class="mx-md-2 mx-1"><a href="#url" class="facebook"><span class="fab fa-facebook-f"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="twitter"><span class="fab fa-twitter"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="rss"><span class="fas fa-rss"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="linkedin"><span class="fab fa-linkedin-in"></span></a></li>
-              <li class="mx-md-2 mx-1"><a href="#url" class="google"><span class="fab fa-google-plus"></span></a></li>
-            </ul>
-          </div>
-          <p class="mt-4">© 2020 Blog Store. All Rights Reserved | Design by <a href="http://w3layouts.com/"
-              target="=_blank"> W3layouts
-            </a></p>
-        </div>
-      </div>
-
+      
     </div>
   </footer>
   <!-- footer -->

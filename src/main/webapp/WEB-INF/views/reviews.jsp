@@ -1,11 +1,5 @@
-<%@page import="com.model.userModel"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -24,37 +18,21 @@ Author URL: http://w3layouts.com
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="css/style-starter.css">
-
-<style>
-select
-{
-font-size:inherit;
-font-family:inherit;
-line-height:inherit;
-overflow:visible;
-width:300px;
-height:40px;
- outline: 0px auto -webkit-focus-ring-color; 
- background-color: #efeff5; 
-}
-
-</style>
-
+ <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+ 
 </head>
-<%userModel u=(userModel)session.getAttribute("user"); 
-int id=u.getId();%>
+
 <body>
-
-
 <!--header-->
 <header id="site-header" class="fixed-top">
   <div class="container">
       <nav class="navbar navbar-expand-lg stroke p-0">
-          <h1> <a class="navbar-brand" href="/">
-                  <span class="fa fa-bell-o"></span> Blog Store
+          <h1> <a class="navbar-brand" href="index.html">
+                  <span class="fa fa-bell-o"></span> Shija Restaurent
               </a></h1>
           <!-- if logo is image enable this   
-  <a class="navbar-brand" href="#index.html">
+  <a class="navbar-brand" href="/SpringWebMVC">
       <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
   </a> -->
           <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
@@ -64,95 +42,65 @@ int id=u.getId();%>
               <span class="navbar-toggler-icon fa icon-close fa-times"></span>
           </button>
 
-           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-              
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav ml-lg-5 mr-lg-auto">
                   <li class="nav-item @@home__active">
-                      <a class="nav-link" href="menu">Menu</span></a>
+                      <a class="nav-link" href="/SpringWebMVC">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item @@about__active">
+                      <a class="nav-link" href="about">About</a>
                   </li>
                   <li class="nav-item active">
-                      <a class="nav-link" href="booktable">Book a Table </a>
-                  </li>
-                  <li class="nav-item @@about__active">
-                      <a class="nav-link" href="reviews">Reviews</a>
-                  </li>
-                  <li class="nav-item @@about__active">
-                      <a class="nav-link" href="changebooking/<%=id%>">Change Booking</a>
+                      <a class="nav-link" href="bookatable">Book a Table</a>
                   </li>
               </ul>
-              
-              <div>
-                     <ul class="navbar-nav ml-lg-5 mr-lg-auto">
-                     <li class="nav-item @@home__active">
-             			<a class="nav-link" href="feedback">Feedback</a></li>
-             			<li class="nav-item @@home__active">
-                      <a class="nav-link" href="logout">Logout</a></li>
-             
-              </ul>
-              </div>      </nav>
+
+                
+                  <li class="nav-item @@contact__active">
+                      <a class="nav-link" href="login">LogOut</a>
+                  </li>
+          </div>
+          <!-- //toggle switch for light and dark theme -->
+      </nav>
   </div>
 </header>
 <!--/header-->
-
+<!-- contact breadcrumb -->
+<div class="w3l-contact-breadcrumb w3l-search-results py-5 text-center">
+    <div class="container py-lg-4 py-md-3">
+        <ul class="breadcrumbs-custom-path mb-sm-3 mb-2 text-center">
+            <li><a href="index.jsp">Home</a></li>
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Reviews </li>
+        </ul>
+        <h3 class="title-big mb-4">Review Us</h3>
+    </div>
+</div>
+<!-- contact breadcrumb -->
 <!-- contacts -->
 <section class="w3l-contact-7 pt-5" id="contact">
-      
     <div class="contacts-9 pt-lg-5 pt-md-4">
-    
         <div class="container">
             <div class="top-map">
-            
                 <div class="row map-content-9">
-                
                     <div class="col-lg-8">
-                    <br>
-                            <h4 class="title-left mb-3">Please Select Your Booking Details</h4>
-                <br>
-                        <form action="bookatable" method="post" class="">
-                            <div class="form-grid">
-                            	<div class="input-field">
-                                    <label> Select Date</label>
-                                    <input type="date" name="date" id="w3lName" placeholder="" required="">
-                                </div>
-                            	<div class="input-field">
-                                    <label> Select Guest</label><br>
-                                    <select name="guest" style="border: none;" required="" >
-                                     <option value="0" >0</option>
-                                    <option value="2" >2</option>
-  									<option value="3">3</option>
-  									<option value="4" >4</option>
-  									<option value="5" >5</option>
-  									</select>
-                                </div>
-                                <div class="input-field">
-                                    <label> Select Session</label><br>
-                                    <select name="session" style="border: none;" required="" >
-                                     <option value="breakfast" >BreakFast</option>
-                                    <option value="lunch" >Lunch</option>
-  									<option value="dinner">Dinner</option>
-  									</select>
-                                </div><br>
-                            <h4 class="title-left mb-3">Guest Details</h4>
-                <br>
-                                <div class="input-field">
-                                    <label> Your name</label>
-                                    <input type="text" name="name" id="w3lName" placeholder="" required="" value="${u.id }">
-                                </div>
-                                <div class="input-field">
-                                    <label> Your Email</label>
-                                    <input type="email" name="email" id="w3lSender" placeholder="" required="">
-                                </div>
-                                <div class="input-field">
-                                    <label> Your Phone</label>
-                                    <input type="text" name="contact" id="w3lPhone" placeholder="" required="">
-                                </div>
-                                
-                            </div>
+                        <form action="review" method="post" class="">
+                           <div class="rate">
+									    <input type="radio" id="star5" name="rate" value="5" />
+									    <label for="star5" title="text">5 stars</label>
+									    <input type="radio" id="star4" name="rate" value="4" />
+									    <label for="star4" title="text">4 stars</label>
+									    <input type="radio" id="star3" name="rate" value="3" />
+									    <label for="star3" title="text">3 stars</label>
+									    <input type="radio" id="star2" name="rate" value="2" />
+									    <label for="star2" title="text">2 stars</label>
+									    <input type="radio" id="star1" name="rate" value="1" />
+									    <label for="star1" title="text">1 star</label>
+							</div><br>
                             <div class="input-field mt-4">
-                                <label>Additional Information</label>
-                                <textarea name="info" id="w3lMessage" placeholder=""></textarea>
+                                <label>Enter your message</label> <br>
+                                <textarea name="rev" id="w3lMessage" placeholder=""></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-style mt-3">Book</button>
+                            <button type="submit" class="btn btn-primary btn-style mt-3">Submit</button>
                         </form>
                     </div>
                     <div class="col-lg-4 cont-details">
@@ -191,11 +139,19 @@ int id=u.getId();%>
   <footer class="py-5">
     <div class="container pt-md-5">
       <div class="footer-logo mb-lg-5 mb-4 text-center">
-        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Shija Restaurant</a>
+        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Blog Store</a>
         <p>We want to provide you with a great experience. Your feedback helps us
           bring you more of the events you love and the service you expect.</p>
       </div>
-      
+      <div class="footer-grid">
+        <div class="w3l-copyright text-center">
+         
+          <p class="mt-4">© 2020 Blog Store. All Rights Reserved | Design by <a href="http://w3layouts.com/"
+              target="=_blank"> W3layouts
+            </a></p>
+        </div>
+      </div>
+
     </div>
   </footer>
   <!-- footer -->

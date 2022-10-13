@@ -1,15 +1,13 @@
+<%@page import="org.hibernate.mapping.Map"%>
+<%@page import="com.model.booktable"%>
+<%@page import="org.springframework.web.servlet.ModelAndView"%>
 <%@page import="com.model.userModel"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page isELIgnored="false" %>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
 <!doctype html>
 <html lang="en">
 
@@ -41,11 +39,8 @@ height:40px;
 </style>
 
 </head>
-<%userModel u=(userModel)session.getAttribute("user"); 
-int id=u.getId();%>
+
 <body>
-
-
 <!--header-->
 <header id="site-header" class="fixed-top">
   <div class="container">
@@ -76,9 +71,6 @@ int id=u.getId();%>
                   <li class="nav-item @@about__active">
                       <a class="nav-link" href="reviews">Reviews</a>
                   </li>
-                  <li class="nav-item @@about__active">
-                      <a class="nav-link" href="changebooking/<%=id%>">Change Booking</a>
-                  </li>
               </ul>
               
               <div>
@@ -92,106 +84,18 @@ int id=u.getId();%>
               </div>      </nav>
   </div>
 </header>
-<!--/header-->
+<div>
+<img src="images/m1.jpg" alt="" class="post-img" />
+<img src="images/m2.jpg" alt="" class="post-img" />
+<img src="images/m4.jpg" alt="" class="post-img" />
+</div>
 
-<!-- contacts -->
-<section class="w3l-contact-7 pt-5" id="contact">
-      
-    <div class="contacts-9 pt-lg-5 pt-md-4">
-    
-        <div class="container">
-            <div class="top-map">
-            
-                <div class="row map-content-9">
-                
-                    <div class="col-lg-8">
-                    <br>
-                            <h4 class="title-left mb-3">Please Select Your Booking Details</h4>
-                <br>
-                        <form action="bookatable" method="post" class="">
-                            <div class="form-grid">
-                            	<div class="input-field">
-                                    <label> Select Date</label>
-                                    <input type="date" name="date" id="w3lName" placeholder="" required="">
-                                </div>
-                            	<div class="input-field">
-                                    <label> Select Guest</label><br>
-                                    <select name="guest" style="border: none;" required="" >
-                                     <option value="0" >0</option>
-                                    <option value="2" >2</option>
-  									<option value="3">3</option>
-  									<option value="4" >4</option>
-  									<option value="5" >5</option>
-  									</select>
-                                </div>
-                                <div class="input-field">
-                                    <label> Select Session</label><br>
-                                    <select name="session" style="border: none;" required="" >
-                                     <option value="breakfast" >BreakFast</option>
-                                    <option value="lunch" >Lunch</option>
-  									<option value="dinner">Dinner</option>
-  									</select>
-                                </div><br>
-                            <h4 class="title-left mb-3">Guest Details</h4>
-                <br>
-                                <div class="input-field">
-                                    <label> Your name</label>
-                                    <input type="text" name="name" id="w3lName" placeholder="" required="" value="${u.id }">
-                                </div>
-                                <div class="input-field">
-                                    <label> Your Email</label>
-                                    <input type="email" name="email" id="w3lSender" placeholder="" required="">
-                                </div>
-                                <div class="input-field">
-                                    <label> Your Phone</label>
-                                    <input type="text" name="contact" id="w3lPhone" placeholder="" required="">
-                                </div>
-                                
-                            </div>
-                            <div class="input-field mt-4">
-                                <label>Additional Information</label>
-                                <textarea name="info" id="w3lMessage" placeholder=""></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-style mt-3">Book</button>
-                        </form>
-                    </div>
-                    <div class="col-lg-4 cont-details">
-                        <address>
-                            <h5 class="">Our Office Address</h5>
-                            <p><span class="fa fa-map-marker"></span>The blog business centre, 32, My Street,Kingston,
-                                New York 12401United States </p>
 
-                            <h5 class="mt-4 pt-lg-3">Phone informatiom</h5>
-                            <p><span class="fa fa-mobile"></span> <strong>Phone :</strong>
-                                <a href="tel:+1(12) 366 411 4999"> (+1) 366 411 499</a></p>
-
-                            <p><span class="fa fa-phone"></span> <strong>Tel :</strong>
-                                <a href="tel:+1(12) 366 411 4999"> (+1) 366 411 499</a></p>
-
-                            <p> <span class="fa fa-envelope"></span> <strong>Email :</strong>
-                                <a href="mailto:mail@example.com"> mail@example.com</a></p>
-
-                            <h5 class="mt-4 pt-lg-3 mb-3">Feel free to contact us</h5>
-                            <p>We want to provide you with a great experience which is why we want to hear from you.
-                            .</p>
-                        </address>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="map mt-5">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2895687731!2d-74.26055986835598!3d40.697668402590374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1562582305883!5m2!1sen!2sin"
-                frameborder="0" style="border:0" allowfullscreen=""></iframe>
-        </div>
-    </div>
-</section>
-<!-- //contacts -->
   <!-- footer -->
   <footer class="py-5">
     <div class="container pt-md-5">
       <div class="footer-logo mb-lg-5 mb-4 text-center">
-        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Shija Restaurant</a>
+        <a class="navbar-brand" href="index.html"><span class="fa fa-bell-o"></span> Blog Store</a>
         <p>We want to provide you with a great experience. Your feedback helps us
           bring you more of the events you love and the service you expect.</p>
       </div>
@@ -226,9 +130,9 @@ int id=u.getId();%>
   </script>
   <!-- /move top -->
 
-  <script src="js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+  <script src="../js/theme-change.js"></script><!-- theme switch js (light and dark)-->
 
-  <script src="js/jquery-3.3.1.min.js"></script><!-- default jQuery -->
+  <script src="../js/jquery-3.3.1.min.js"></script><!-- default jQuery -->
 
   <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
 
